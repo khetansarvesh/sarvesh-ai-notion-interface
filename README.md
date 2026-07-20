@@ -54,32 +54,24 @@ python -m build
 
 ## Publishing checklist
 
-The TestPyPI publisher uses GitHub's OpenID Connect identity rather than a
-stored API token. Before the first release:
+The PyPI publisher uses GitHub's OpenID Connect identity rather than a stored
+API token. Before the first release:
 
-1. In TestPyPI, create a **Trusted Publisher** with:
+1. In PyPI, create a **Trusted Publisher** with:
    - PyPI project name: `sarvesh-ai-notion-interface`
    - Owner: `khetansarvesh`
    - Repository: `sarvesh-ai-notion-interface`
-   - Workflow filename: `publish-testpypi.yml`
-   - Environment name: `testpypi`
-2. Push a tag such as `v0.1.0.dev1`, or run the **Publish to TestPyPI** workflow
+   - Workflow filename: `publish-pypi.yml`
+   - Environment name: `pypi`
+2. Push tag `v0.1.0`, or run the **Publish to PyPI** workflow
    manually from GitHub Actions.
 3. Install the result in a clean virtual environment:
 
    ```bash
-   python -m pip install \
-     --index-url https://test.pypi.org/simple/ \
-     --extra-index-url https://pypi.org/simple \
-     sarvesh-ai-notion-interface==0.1.0.dev1
+   python -m pip install sarvesh-ai-notion-interface==0.1.0
    ```
 
 4. Run the consuming skills against that clean installation.
-5. After validation, release `0.1.0` to real PyPI from a separate production
-   workflow.
-
-The `0.1.0.dev1` version is reserved for this TestPyPI validation; indexes do
-not allow replacing an existing upload.
 
 No secrets, database IDs, resumes, or personal candidate data belong in this
 repository.
