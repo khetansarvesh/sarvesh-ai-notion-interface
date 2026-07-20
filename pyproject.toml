@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sarvesh-ai-notion-interface"
-version = "0.1.0"
+version = "0.1.0.dev1"
 description = "Reusable Notion integration helpers for AI-powered job-tracking workflows."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -28,8 +28,10 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = [
+  "build>=1.2",
   "pytest>=8.0",
   "ruff>=0.6",
+  "twine>=6.0",
 ]
 
 [project.urls]
